@@ -7,6 +7,10 @@ var camera;
 
 var scene = createScene();
 
+//Global Variables for the planets
+var sun;
+var planet_1;
+
 //Setting up the scene
 function createScene() {
   var scene = new BABYLON.Scene(engine);
@@ -29,10 +33,32 @@ function createScene() {
     scene
   );
 
+  //Adding the planets (Da Solar System)
+  // --- The Sun ---
+  sun = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 0.7 }, scene);
+
+  // --- Planet One ---
+  planet_1 = BABYLON.MeshBuilder.CreateSphere(
+    "sphere",
+    { diameter: 0.1 },
+    scene
+  );
+  planet_1.position.z = 0.75;
+
+  // --- Planet Two ---
   return scene;
 }
 
 //Starting the render loop
 engine.runRenderLoop(function() {
+  orbit();
   scene.render();
 });
+
+//Orbit function for da planets
+function orbit() {
+  TweenLite.to(planet_1.rotation, 1, {
+    x: "+=.5"
+  });
+  console.log(planet_1.rotation.x);
+}
