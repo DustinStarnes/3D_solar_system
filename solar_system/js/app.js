@@ -38,6 +38,10 @@ function createScene() {
   //Adding the planets (Da Solar System)
   // --- The Sun ---
   sun = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 0.7 }, scene);
+  var gl = new BABYLON.GlowLayer("glow", scene);
+
+  sun.material = new BABYLON.StandardMaterial("red", scene);
+  sun.material.emissiveColor = new BABYLON.Color3(0.8, 0.4, 0.4);
 
   // --- Planet One ---
   planet_1 = BABYLON.MeshBuilder.CreateSphere(
