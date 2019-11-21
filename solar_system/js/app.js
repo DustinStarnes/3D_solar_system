@@ -51,6 +51,12 @@ function createScene() {
   );
   planet_1.position.z = 0.75;
 
+  /*
+  gl.addExcludedMesh(planet_1);
+  planet_1.material = new BABYLON.StandardMaterial("red", scene);
+  planet_1.material.emissiveColor = new BABYLON.Color3(0.0, 0.4, 0.9);
+  */
+
   // --- Planet Two ---
   return scene;
 }
