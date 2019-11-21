@@ -14,6 +14,7 @@ var planet_1;
 //Setting up the scene
 function createScene() {
   var scene = new BABYLON.Scene(engine);
+  scene.clearColor = new BABYLON.Color3(0.1, 0.007, 0.015);
 
   //Add a camera to the scene and attach it to the canvas
   camera = new BABYLON.ArcRotateCamera(
