@@ -6,6 +6,7 @@ var engine = new BABYLON.Engine(canvas, true);
 var camera;
 
 var scene = createScene();
+  scene.clearColor = new BABYLON.Color3(0.1, 0.007, 0.015);
 
 //Global Variables for the planets
 var sun;
@@ -14,7 +15,6 @@ var planet_1;
 //Setting up the scene
 function createScene() {
   var scene = new BABYLON.Scene(engine);
-  scene.clearColor = new BABYLON.Color3(0.1, 0.007, 0.015);
 
   //Add a camera to the scene and attach it to the canvas
   camera = new BABYLON.ArcRotateCamera(
@@ -46,18 +46,54 @@ function createScene() {
   // --- Planet One ---
   planet_1 = BABYLON.MeshBuilder.CreateSphere(
     "sphere",
-    { diameter: 0.1 },
+    { diameter: 0.3 },
     scene
   );
-  planet_1.position.z = 0.75;
+  planet_1.position.z = 1.75;
 
-  /*
-  gl.addExcludedMesh(planet_1);
-  planet_1.material = new BABYLON.StandardMaterial("red", scene);
-  planet_1.material.emissiveColor = new BABYLON.Color3(0.0, 0.4, 0.9);
-  */
-
+  var planetMaterial = new BABYLON.StandardMaterial("planetSurface", scene);
+  planetMaterial.emissiveTexture = new BABYLON.Texture("textures/h-028.jpeg", scene);
+  planet_1.material = planetMaterial;
+  
+  planet_1.position.x = 5;
+	planet_1.bakeCurrentTransformIntoVertices();
+  planet_1.position.x = 0;
+  
   // --- Planet Two ---
+  planet_2 = BABYLON.MeshBuilder.CreateSphere(
+    "sphere",
+    { diameter: 3 },
+    scene
+  );
+  planet_2.position.x = 5.75;
+
+  var planet2Material = new BABYLON.StandardMaterial("planetSurface", scene);
+  planet2Material.emissiveTexture = new BABYLON.Texture("textures/Asiaq.jpeg", scene);
+  planet_2.material = planet2Material;
+
+  planet_2.position.x = 10;
+	planet_2.bakeCurrentTransformIntoVertices();
+  planet_2.position.x = 0;
+  
+  // --- Planet Three ---
+  planet_3 = BABYLON.MeshBuilder.CreateSphere(
+    "sphere",
+    { diameter: 0.7 },
+    scene
+  );
+  planet_3.position.y = 5.75;
+
+  var planet3Material = new BABYLON.StandardMaterial("planetSurface", scene);
+  planet3Material.emissiveTexture = new BABYLON.Texture("textures/Efaja.jpeg", scene);
+  planet_3.material = planet3Material;
+
+  planet_3.position.x = 5;
+	planet_3.bakeCurrentTransformIntoVertices();
+  planet_3.position.x = 0;
+  
+  // --- Rings ---
+  var myPlane = BABYLON.MeshBuilder.CreateCylinder("myPlane", {diameter:5 , height: .050}, scene);
+  myPlane.position.x = 5.75;
   return scene;
 }
 
@@ -70,7 +106,18 @@ engine.runRenderLoop(function() {
 //Orbit function for da planets
 function orbit() {
   TweenLite.to(planet_1.rotation, 1, {
+    y: "+=.5",
     x: "+=.5"
+  });
+  
+  TweenLite.to(planet_2.rotation, 1, {
+    y: "+=.3",
+    x: "+=.01"
+  });
+  
+  TweenLite.to(planet_3.rotation, 1, {
+    y: "+=.75",
+    x: "+=3."
   });
   console.log(planet_1.rotation.x);
 }
