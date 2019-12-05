@@ -131,6 +131,7 @@ function orbit() {
 }
 
 //events for showing info of the planets
+//------------------------------------------------------------------------- the sun
 sun.actionManager = new BABYLON.ActionManager(scene);
 sun.actionManager.registerAction(
   new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
@@ -141,6 +142,19 @@ sun.actionManager.registerAction(
   })
 );
 
+//------------------------------------------------------------------------- planet 1
+planet_1.actionManager = new BABYLON.ActionManager(scene);
+planet_1.actionManager.registerAction(
+  new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
+    event
+  ) {
+    infoBox.innerHTML = "Planet Info";
+    infoBox.style.display = "block";
+    console.log("gg baby");
+  })
+);
+
+//------------------------------------------------------------------------- planet 2
 planet_2.actionManager = new BABYLON.ActionManager(scene);
 planet_2.actionManager.registerAction(
   new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
