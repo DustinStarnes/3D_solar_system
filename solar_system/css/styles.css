@@ -2,3 +2,13 @@
   display: block;
   margin: auto;
 }
+
+#infoBox {
+  color: white;
+  margin: 0 auto;
+  width: 200px;
+  height: 35px;
+  background-color: teal;
+  padding: 5px;
+  display: none;
+}
