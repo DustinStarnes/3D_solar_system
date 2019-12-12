@@ -1,14 +1,21 @@
+.holder {
+  height: 720px;
+  width: 100%;
+  display: flex;
+}
 #renderCanvas {
   display: block;
-  margin: auto;
 }
 
 #infoBox {
   color: white;
-  margin: 0 auto;
+
   width: 200px;
   height: 35px;
-  background-color: teal;
+  background-color: rgba(46, 142, 252, 0.692);
   padding: 5px;
   display: none;
+}
+body {
+  background-color: rgb(25.5, 1.875, 3.875);
 }
