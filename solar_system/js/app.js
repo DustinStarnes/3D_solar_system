@@ -33,7 +33,7 @@ function createScene() {
 
   //Adding the planets (Da Solar System)
   // --- The Sun ---
-  sun = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 0.7 }, scene);
+  sun = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 4 }, scene);
   var gl = new BABYLON.GlowLayer("glow", scene);
 
   sun.material = new BABYLON.StandardMaterial("red", scene);
@@ -176,33 +176,33 @@ engine.runRenderLoop(function() {
 //Orbit function for da planets
 function orbit() {
   TweenLite.to(H_028.rotation, 1, {
-    y: "+=.5",
-    x: "+=.5"
+    y: "+=.125",
+    x: "+=.125"
   });
 
   TweenLite.to(Asiaq.rotation, 1, {
-    y: "+=.3",
-    x: "+=.31"
+    y: "+=.075",
+    x: "+=.0775"
   });
 
   TweenLite.to(Efaja.rotation, 1, {
-    y: "+=.75",
-    x: "+=.75"
+    y: "+=.1875",
+    x: "+=.1875"
   });
 
   TweenLite.to(Grill.rotation, 1, {
-    y: "+=.706",
-    x: "+=.709"
+    y: "+=.1765",
+    x: "+=.17725"
   });
 
   TweenLite.to(Habitat_7.rotation, 1, {
-    y: "+=.251",
-    x: "+=.286"
+    y: "+=.06275",
+    x: "+=.0715"
   });
 
   TweenLite.to(Yhraen.rotation, 1, {
-    y: "+=.195",
-    x: "+=.155"
+    y: "+=.04875",
+    x: "+=.03875"
   });
   //console.log(planet_1.rotation.x);
 }
@@ -214,7 +214,8 @@ sun.actionManager.registerAction(
   new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
     event
   ) {
-    infoBox.innerHTML = "The sun";
+    infoBox.innerHTML =
+      "Faross <br><br> Faross is located in a region of the Heleus Cluster that is lighted differently from the rest of it. Dr. Suvi Anwar theorizes that maybe the Scourge is absorbing certain wavelengths.";
     infoBox.style.display = "block";
   })
 );
@@ -225,7 +226,8 @@ H_028.actionManager.registerAction(
   new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
     event
   ) {
-    infoBox.innerHTML = "Planet Info";
+    infoBox.innerHTML =
+      "H-028 <br><br> Orbital Distance: 0.2 AU <br> Orbital Period: 0.2 years <br> Radius: 7918km <br> Atmospheric Pressure: 0.07 atm <br> Surface Temperature: 33 C <br><br> Information: <br> A near-constant bombardment of meteorites from the nearby asteroid belt pelts the surface of H-028. It's only real weather is the resulting dust clouds";
     infoBox.style.display = "block";
     console.log("gg baby");
   })
@@ -237,8 +239,56 @@ Asiaq.actionManager.registerAction(
   new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
     event
   ) {
-    infoBox.innerHTML = "The other planet";
+    infoBox.innerHTML =
+      "Asiaq <br><br> Orbital Distance: 1.5 AU <br> Orbital Period: 3.4 years <br> Radius: 9148km <br> Atmospheric Pressure: 29.36 atm <br> Surface Temperature: -51 C <br><br> Information: <br> Asiaq's thick carbon dioxide and argon atmosphere shows symptoms of Scourge distortion, though no Scourge tendrils are detectable in the planet's current orbital path.";
     infoBox.style.display = "block";
     console.log("gg baby");
+  })
+);
+
+Efaja.actionManager = new BABYLON.ActionManager(scene);
+Efaja.actionManager.registerAction(
+  new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
+    event
+  ) {
+    infoBox.innerHTML =
+      "Efaja <br><br> Orbital Distance: 0.3 AU <br> Orbital Period: 0.4 years <br> Radius: 4138km <br> Atmospheric Pressure: 7.04 atm <br> Surface Temperature: -1 C <br><br> Information: <br> Thanks to its unusual orbit and axial tilt, Efaja is pounded by snow and howling winds for all but a few hours of each fifty-six hour day.";
+    infoBox.style.display = "block";
+    console.log("gg baby");
+  })
+);
+
+Grill.actionManager = new BABYLON.ActionManager(scene);
+Grill.actionManager.registerAction(
+  new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
+    event
+  ) {
+    infoBox.innerHTML =
+      "Grill <br><br> Orbital Distance: 0.7 AU <br> Orbital Period: 1.1 years <br> Radius: 4138km <br> Atmospheric Pressure: 89.22 atm <br> Surface Temperature: 101 C <br><br> Information: <br> First discovered by an Outcast with an unusual sense of humor, Grill was named for its extremely hot metallic surface and earmarked for future mining operation.";
+    infoBox.style.display = "block";
+    console.log("gg baby");
+  })
+);
+
+Habitat_7.actionManager = new BABYLON.ActionManager(scene);
+Habitat_7.actionManager.registerAction(
+  new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
+    event
+  ) {
+    infoBox.innerHTML =
+      "Habitat_7 <br><br> Orbital Distance: 2.3 AU <br> Orbital Period: 3.1 years <br> Radius: 4912km <br> Atmospheric Pressure: 2.3 atm <br> Surface Temperature: 17 C <br><br> Information: <br> Even visual scans show that Habitat 7 is no longer a promising settlement world. The planet's atmosphere is largely argon-nitrogen, and little of the projected plant life has survived.";
+    infoBox.style.display = "block";
+    console.log("gg baby");
+  })
+);
+
+Yhraen.actionManager = new BABYLON.ActionManager(scene);
+Yhraen.actionManager.registerAction(
+  new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
+    event
+  ) {
+    infoBox.innerHTML =
+      "Yhraen <br><br> Orbital Distance: 5.7 AU <br> Orbital Period: 10.4 years <br> Radius: 5301km <br> Atmospheric Pressure: 2.9 atm <br> Surface Temperature: 111 C <br><br> Information: <br> Sulfur, iron, and plutonium compose the bulk of Yhraen's surface. It's powerful storms shift in magnitude as it orbits around the gas giant Yednoath";
+    infoBox.style.display = "block";
   })
 );
