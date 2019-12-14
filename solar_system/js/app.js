@@ -33,7 +33,7 @@ function createScene() {
 
   //Adding the planets (Da Solar System)
   // --- The Sun ---
-  sun = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 4 }, scene);
+  sun = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 0.7 }, scene);
   var gl = new BABYLON.GlowLayer("glow", scene);
 
   sun.material = new BABYLON.StandardMaterial("red", scene);
@@ -45,7 +45,7 @@ function createScene() {
 
   var H_028Material = new BABYLON.StandardMaterial("planetSurface", scene);
   H_028Material.emissiveTexture = new BABYLON.Texture(
-    "textures/h-028.jpeg",
+    "textures/H-028.png",
     scene
   );
   H_028.material = H_028Material;
@@ -60,7 +60,7 @@ function createScene() {
 
   var AsiaqMaterial = new BABYLON.StandardMaterial("planetSurface", scene);
   AsiaqMaterial.emissiveTexture = new BABYLON.Texture(
-    "textures/Asiaq.jpeg",
+    "textures/Asiaq.png",
     scene
   );
   Asiaq.material = AsiaqMaterial;
@@ -75,7 +75,7 @@ function createScene() {
 
   var EfajaMaterial = new BABYLON.StandardMaterial("planetSurface", scene);
   EfajaMaterial.emissiveTexture = new BABYLON.Texture(
-    "textures/Efaja.jpeg",
+    "textures/Efaja.png",
     scene
   );
   Efaja.material = EfajaMaterial;
@@ -90,7 +90,7 @@ function createScene() {
 
   var GrillMaterial = new BABYLON.StandardMaterial("planetSurface", scene);
   GrillMaterial.emissiveTexture = new BABYLON.Texture(
-    "textures/Grill.jpeg",
+    "textures/Lorek.jpg",
     scene
   );
   Grill.material = GrillMaterial;
@@ -109,7 +109,7 @@ function createScene() {
 
   var Habitat7Material = new BABYLON.StandardMaterial("planetSurface", scene);
   Habitat7Material.emissiveTexture = new BABYLON.Texture(
-    "textures/Habitat_7.jpeg",
+    "textures/Habitat_7.png",
     scene
   );
   Habitat_7.material = Habitat7Material;
@@ -128,7 +128,7 @@ function createScene() {
 
   var YhraenMaterial = new BABYLON.StandardMaterial("planetSurface", scene);
   YhraenMaterial.emissiveTexture = new BABYLON.Texture(
-    "textures/Yhraen.jpeg",
+    "textures/Yhraen.png",
     scene
   );
   Yhraen.material = YhraenMaterial;
@@ -176,33 +176,33 @@ engine.runRenderLoop(function() {
 //Orbit function for da planets
 function orbit() {
   TweenLite.to(H_028.rotation, 1, {
-    y: "+=.125",
-    x: "+=.125"
+    y: "+=.5",
+    x: "+=.5"
   });
 
   TweenLite.to(Asiaq.rotation, 1, {
-    y: "+=.075",
-    x: "+=.0775"
+    y: "+=.3",
+    x: "+=.31"
   });
 
   TweenLite.to(Efaja.rotation, 1, {
-    y: "+=.1875",
-    x: "+=.1875"
+    y: "+=.75",
+    x: "+=.75"
   });
 
   TweenLite.to(Grill.rotation, 1, {
-    y: "+=.1765",
-    x: "+=.17725"
+    y: "+=.706",
+    x: "+=.709"
   });
 
   TweenLite.to(Habitat_7.rotation, 1, {
-    y: "+=.06275",
-    x: "+=.0715"
+    y: "+=.251",
+    x: "+=.286"
   });
 
   TweenLite.to(Yhraen.rotation, 1, {
-    y: "+=.04875",
-    x: "+=.03875"
+    y: "+=.195",
+    x: "+=.155"
   });
   //console.log(planet_1.rotation.x);
 }
@@ -219,6 +219,7 @@ sun.actionManager.registerAction(
     infoBox.style.display = "block";
   })
 );
+
 
 //------------------------------------------------------------------------- planet 1
 H_028.actionManager = new BABYLON.ActionManager(scene);
@@ -246,6 +247,7 @@ Asiaq.actionManager.registerAction(
   })
 );
 
+//------------------------------------------------------------------------- planet 3
 Efaja.actionManager = new BABYLON.ActionManager(scene);
 Efaja.actionManager.registerAction(
   new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
@@ -258,6 +260,7 @@ Efaja.actionManager.registerAction(
   })
 );
 
+//------------------------------------------------------------------------- planet 4
 Grill.actionManager = new BABYLON.ActionManager(scene);
 Grill.actionManager.registerAction(
   new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
@@ -270,6 +273,7 @@ Grill.actionManager.registerAction(
   })
 );
 
+//------------------------------------------------------------------------- planet 5
 Habitat_7.actionManager = new BABYLON.ActionManager(scene);
 Habitat_7.actionManager.registerAction(
   new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
@@ -282,6 +286,7 @@ Habitat_7.actionManager.registerAction(
   })
 );
 
+//------------------------------------------------------------------------- planet 6
 Yhraen.actionManager = new BABYLON.ActionManager(scene);
 Yhraen.actionManager.registerAction(
   new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
