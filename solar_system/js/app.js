@@ -45,7 +45,7 @@ function createScene() {
 
   var H_028Material = new BABYLON.StandardMaterial("planetSurface", scene);
   H_028Material.emissiveTexture = new BABYLON.Texture(
-    "textures/H-028.png",
+    "textures/H_028.png",
     scene
   );
   H_028.material = H_028Material;
@@ -176,23 +176,23 @@ engine.runRenderLoop(function() {
 //Orbit function for da planets
 function orbit() {
   TweenLite.to(H_028.rotation, 1, {
-    y: "+=.5",
-    x: "+=.5"
+    y: "+=.05",
+    x: "+=.05"
   });
 
   TweenLite.to(Asiaq.rotation, 1, {
-    y: "+=.3",
-    x: "+=.31"
+    y: "+=.13",
+    x: "+=.131"
   });
 
   TweenLite.to(Efaja.rotation, 1, {
-    y: "+=.75",
-    x: "+=.75"
+    y: "+=.245",
+    x: "+=.245"
   });
 
   TweenLite.to(Grill.rotation, 1, {
-    y: "+=.706",
-    x: "+=.709"
+    y: "+=.2306",
+    x: "+=.2309"
   });
 
   TweenLite.to(Habitat_7.rotation, 1, {
@@ -247,6 +247,17 @@ Asiaq.actionManager.registerAction(
   })
 );
 
+myPlane.actionManager = new BABYLON.ActionManager(scene);
+myPlane.actionManager.registerAction(
+  new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
+    event
+  ) {
+    infoBox.innerHTML =
+      "Asiaq <br><br> Orbital Distance: 1.5 AU <br> Orbital Period: 3.4 years <br> Radius: 9148km <br> Atmospheric Pressure: 29.36 atm <br> Surface Temperature: -51 C <br><br> Information: <br> Asiaq's thick carbon dioxide and argon atmosphere shows symptoms of Scourge distortion, though no Scourge tendrils are detectable in the planet's current orbital path.";
+    infoBox.style.display = "block";
+    console.log("gg baby");
+  })
+);
 //------------------------------------------------------------------------- planet 3
 Efaja.actionManager = new BABYLON.ActionManager(scene);
 Efaja.actionManager.registerAction(
@@ -273,9 +284,34 @@ Grill.actionManager.registerAction(
   })
 );
 
+myRing.actionManager = new BABYLON.ActionManager(scene);
+myRing.actionManager.registerAction(
+  new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
+    event
+  ) {
+    infoBox.innerHTML =
+      "Grill <br><br> Orbital Distance: 0.7 AU <br> Orbital Period: 1.1 years <br> Radius: 4138km <br> Atmospheric Pressure: 89.22 atm <br> Surface Temperature: 101 C <br><br> Information: <br> First discovered by an Outcast with an unusual sense of humor, Grill was named for its extremely hot metallic surface and earmarked for future mining operation.";
+    infoBox.style.display = "block";
+    console.log("gg baby");
+  })
+);
+
+
 //------------------------------------------------------------------------- planet 5
 Habitat_7.actionManager = new BABYLON.ActionManager(scene);
 Habitat_7.actionManager.registerAction(
+  new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
+    event
+  ) {
+    infoBox.innerHTML =
+      "Habitat_7 <br><br> Orbital Distance: 2.3 AU <br> Orbital Period: 3.1 years <br> Radius: 4912km <br> Atmospheric Pressure: 2.3 atm <br> Surface Temperature: 17 C <br><br> Information: <br> Even visual scans show that Habitat 7 is no longer a promising settlement world. The planet's atmosphere is largely argon-nitrogen, and little of the projected plant life has survived.";
+    infoBox.style.display = "block";
+    console.log("gg baby");
+  })
+);
+
+myCircle.actionManager = new BABYLON.ActionManager(scene);
+myCircle.actionManager.registerAction(
   new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function(
     event
   ) {
